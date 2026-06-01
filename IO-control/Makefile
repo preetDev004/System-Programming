@@ -8,3 +8,6 @@ all: $(TARGET)
 
 $(TARGET): $(SRCS)
 	$(CC) $(CFLAGS) -o $@ $^
+
+clean:
+	rm -f $(TARGET)
