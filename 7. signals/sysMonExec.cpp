@@ -48,6 +48,16 @@ int systemMonitor()//run by the parent process
     for (int i=0; i<NUM; ++i) {
         kill(childPid[i], SIGUSR1);
     }
+    sleep(2);
+    // Send Cntrl-C signal to the children (SIGINT)
+    for (int i=0; i<NUM; ++i) {
+        kill(childPid[i], SIGINT);
+    }
+    sleep(2);
+     // Send Cntrl-Z signal to the children (SIGTSTP)
+    for (int i=0; i<NUM; ++i) {
+        kill(childPid[i], SIGTSTP);
+    }
     // sleep for 30 seconds
     sleep(30);
     // Send stop signals to the children (SIGUSR2)
